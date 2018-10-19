@@ -39,24 +39,27 @@ import {allBooks} from './data';
 // });
 
 //using Observable.create instaed of new Observable
-let allBookObservable$ =  Observable.create(subscriber => {
-    if(document.title != 'RxBookTracker')
-    {
-        subscriber.error('Incorrect page title');
-    }
+// let allBookObservable$ =  Observable.create(subscriber => {
+//     if(document.title != 'RxBookTracker')
+//     {
+//         subscriber.error('Incorrect page title');
+//     }
 
-    for(let book of allBooks){
-        subscriber.next(book);
-    }
+//     for(let book of allBooks){
+//         subscriber.next(book);
+//     }
 
-    setTimeout(()  => {
-        subscriber.complete();
-    },2000);
+//     setTimeout(()  => {
+//         subscriber.complete();
+//     },2000);
 
-    return  () => console.log('Executing Teardown code');
+//     return  () => console.log('Executing Teardown code');
 
-});
+// });
 
 
-allBookObservable$.subscribe(book => console.log(book.title));
+// allBookObservable$.subscribe(book => console.log(book.title));
+
+
+
 
