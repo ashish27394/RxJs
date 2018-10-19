@@ -20,7 +20,26 @@ import {allBooks} from './data';
 // });
 
 //using all 3 methods of Observer Interface
-let allBookObservable$ = new Observable(subscriber => {
+// let allBookObservable$ = new Observable(subscriber => {
+//     if(document.title != 'RxBookTracker')
+//     {
+//         subscriber.error('Incorrect page title');
+//     }
+
+//     for(let book of allBooks){
+//         subscriber.next(book);
+//     }
+
+//     setTimeout(()  => {
+//         subscriber.complete();
+//     },2000);
+
+//     return  () => console.log('Executing Teardown code');
+
+// });
+
+//using Observable.create instaed of new Observable
+let allBookObservable$ =  Observable.create(subscriber => {
     if(document.title != 'RxBookTracker')
     {
         subscriber.error('Incorrect page title');
