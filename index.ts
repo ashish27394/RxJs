@@ -63,7 +63,16 @@ import {allBooks, allReaders} from './data';
 
 //---------------------------------------
 //creating observer using "of" function
-let source1$ = of('hello', 10 ,true , allReaders[0].name);
+//you can pass anything in omma separator values
+// let source1$ = of('hello', 10 ,true , allReaders[0].name);
 
-source1$.subscribe(value => console.log(value));
+// source1$.subscribe(value => console.log(value));
+
+//creating observer using "from" function
+//You can pass the following things into "from" function
+//subscribable i.e. another observable
+//Promise
+//Array
+let source2$ = from(allBooks);
+source2$.subscribe(book => console.log(book.title));
 
