@@ -2,6 +2,8 @@ import {Observable, of, from, fromEvent,concat } from 'rxjs';
 import {allBooks, allReaders} from './data';
 import {ajax, AjaxResponse} from 'rxjs/ajax';
 
+//#region Creating Observables 
+
 // One way
 // function subscribe(subscriber){
 //     for(let book of allBooks){
@@ -102,25 +104,27 @@ import {ajax, AjaxResponse} from 'rxjs/ajax';
 
 //--------------------------
 //making an ajax request using RxJs
-let button = document.getElementById('readersButton');
+// let button = document.getElementById('readersButton');
 
-fromEvent(button, 'click')
-    .subscribe(event => {
-        //server -> data -> readers
-        ajax('/api/readers')
-        .subscribe(ajaxResponse => {
-            console.log(ajaxResponse);
+// fromEvent(button, 'click')
+//     .subscribe(event => {
+//         //server -> data -> readers
+//         ajax('/api/readers')
+//         .subscribe(ajaxResponse => {
+//             console.log(ajaxResponse);
 
-            let readers = ajaxResponse.response;
+//             let readers = ajaxResponse.response;
 
-            let readersDiv = document.getElementById('readers');
+//             let readersDiv = document.getElementById('readers');
 
-            for(let reader of readers){
-                readersDiv.innerHTML += reader.name + '<br>';
-            }
+//             for(let reader of readers){
+//                 readersDiv.innerHTML += reader.name + '<br>';
+//             }
 
-        })
-    });
+//         })
+//     });
+
+    //#endregion 
 
 
 
