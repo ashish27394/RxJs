@@ -13,11 +13,31 @@ import {allBooks} from './data';
 //------------------------
 
 //2nd way
+// let allBookObservable$ = new Observable(subscriber => {
+//     for(let book of allBooks){
+//                 subscriber.next(book);
+//             }
+// });
+
+//using all 3 methods of Observer Interface
 let allBookObservable$ = new Observable(subscriber => {
+    if(document.title != 'RxBookTracker')
+    {
+        subscriber.error('Incorrect page title');
+    }
+
     for(let book of allBooks){
-                subscriber.next(book);
-            }
+        subscriber.next(book);
+    }
+
+    setTimeout(()  => {
+        subscriber.complete();
+    },2000);
+
+    return  () => console.log('Executing Teardown code');
+
 });
+
 
 allBookObservable$.subscribe(book => console.log(book.title));
 
