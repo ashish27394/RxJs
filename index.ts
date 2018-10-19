@@ -1,5 +1,5 @@
-import {Observable} from 'rxjs';
-import {allBooks} from './data';
+import {Observable, of, from, fromEvent} from 'rxjs';
+import {allBooks, allReaders} from './data';
 
 // One way
 // function subscribe(subscriber){
@@ -61,5 +61,9 @@ import {allBooks} from './data';
 // allBookObservable$.subscribe(book => console.log(book.title));
 
 
+//---------------------------------------
+//creating observer using "of" function
+let source1$ = of('hello', 10 ,true , allReaders[0].name);
 
+source1$.subscribe(value => console.log(value));
 
