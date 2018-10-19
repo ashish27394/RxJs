@@ -106,7 +106,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nex
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar rxjs_1 = __webpack_require__(/*! rxjs */ \"./node_modules/rxjs/_esm5/index.js\");\r\nvar data_1 = __webpack_require__(/*! ./data */ \"./data.ts\");\r\n// One way\r\nfunction subscribe(subscriber) {\r\n    for (var _i = 0, allBooks_1 = data_1.allBooks; _i < allBooks_1.length; _i++) {\r\n        var book = allBooks_1[_i];\r\n        subscriber.next(book);\r\n    }\r\n}\r\nvar allBookObservable$ = new rxjs_1.Observable(subscribe);\r\nallBookObservable$.subscribe(function (book) { return console.log(book.title); });\r\n\n\n//# sourceURL=webpack:///./index.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar rxjs_1 = __webpack_require__(/*! rxjs */ \"./node_modules/rxjs/_esm5/index.js\");\r\nvar data_1 = __webpack_require__(/*! ./data */ \"./data.ts\");\r\n// One way\r\n// function subscribe(subscriber){\r\n//     for(let book of allBooks){\r\n//         subscriber.next(book);\r\n//     }\r\n// }\r\n// let allBookObservable$ = new Observable(subscribe);\r\n//------------------------\r\n//2nd way\r\nvar allBookObservable$ = new rxjs_1.Observable(function (subscriber) {\r\n    for (var _i = 0, allBooks_1 = data_1.allBooks; _i < allBooks_1.length; _i++) {\r\n        var book = allBooks_1[_i];\r\n        subscriber.next(book);\r\n    }\r\n});\r\nallBookObservable$.subscribe(function (book) { return console.log(book.title); });\r\n\n\n//# sourceURL=webpack:///./index.ts?");
 
 /***/ }),
 
