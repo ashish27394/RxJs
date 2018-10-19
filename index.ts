@@ -78,6 +78,6 @@ import {allBooks, allReaders} from './data';
 
 //-----------------------------------------
 //Combining two observables using concat
-let source1$ = of('hello', 10 ,true , allReaders[0].name);
-let source2$ = from(allBooks);
-concat(source1$,source2$).subscribe(value => console.log(value));
+// let source1$ = of('hello', 10 ,true , allReaders[0].name);
+// let source2$ = from(allBooks);
+// concat(source1$,source2$).subscribe(value => console.log(value));
