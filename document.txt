@@ -1,0 +1,76 @@
+
+RxJS
+
+It is a library for writing code in a more reactive way.
+
+RxJs is a library for building asynchronous applications
+with observable sequences.
+
+It provides with an api which lets us deal with all kinds of data
+in as an observable sequence more commonly refered to as stream data
+
+stream data = different kinds of data in js
+(synchronous and asynchronous)
+
+RxJs provides a single layer of abstraction for dealing with these data
+
+Different types of data can be 
+1)Getting book details using the book id synchronously
+2)Getting book details using the book id asynchronously using Promise
+3)Finite Data - Fetching book details from book array using loop 
+4)Infinite Data - Getting event triggers in browser
+
+Observables are a clean	 layer of abstraction that let us use a single
+API to process all of the various types of data streams.
+
+They can produce data synchronous and asynchronously
+
+Building Blocks of RxJS
+1)Observables
+2)Observers
+3)Subscriptions
+4)Operators
+5)Subjects
+6)Schedulers
+
+1)Observables
+-It is a representation of any set of values over any amount of time.
+
+Observables are getting observes from Observers,
+
+2)Observers are objects that implement the simple observer interface 
+in RxJs
+Following 3 methods are present in interface
+a)next() 
+b)error()
+c)complete()
+
+Subscribers - Objects that want to receive values from an observable are
+passed to a method named Subscribe.
+
+Subscriber is actually a specific type in RxJs. However, it's also
+an Observer b/c it implements the Observer interface.
+
+It is common standard to put $ as suffix at the end of the variable in RxJs.
+ex = allBooksObservable$
+Through we can know which is observable and which is not.
+
+*An observable is not executed until an object subscribes to it.
+
+Observable takes a subscriber parameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
