@@ -81,3 +81,31 @@ import {allBooks, allReaders} from './data';
 // let source1$ = of('hello', 10 ,true , allReaders[0].name);
 // let source2$ = from(allBooks);
 // concat(source1$,source2$).subscribe(value => console.log(value));
+
+//-----------------------------
+//Handlng the DOM events using the Observables
+//using RxJs button event "fromEvent"
+let button = document.getElementById('readersButton');
+//The values produced by the observables will be 
+//javascript event object
+fromEvent(button,  'click').subscribe(
+    event => {
+        console.log(event);
+
+        let readersDiv = document.getElementById('readers');
+
+        for(let reader of allReaders){
+                readersDiv.innerHTML += reader.name + '<br>'
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
