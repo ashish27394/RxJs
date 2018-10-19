@@ -1,4 +1,4 @@
-import {Observable, of, from, fromEvent} from 'rxjs';
+import {Observable, of, from, fromEvent,concat } from 'rxjs';
 import {allBooks, allReaders} from './data';
 
 // One way
@@ -73,6 +73,11 @@ import {allBooks, allReaders} from './data';
 //subscribable i.e. another observable
 //Promise
 //Array
-let source2$ = from(allBooks);
-source2$.subscribe(book => console.log(book.title));
+// let source2$ = from(allBooks);
+// source2$.subscribe(book => console.log(book.title));
 
+//-----------------------------------------
+//Combining two observables using concat
+let source1$ = of('hello', 10 ,true , allReaders[0].name);
+let source2$ = from(allBooks);
+concat(source1$,source2$).subscribe(value => console.log(value));
